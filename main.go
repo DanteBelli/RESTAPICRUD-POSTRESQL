@@ -3,14 +3,12 @@ package main
 import (
 	"net/http"
 
+	"github.com/Dante-Belli/RESTAPICRUD-POSTRESQL/routes"
 	"github.com/gorilla/mux"
 )
 
-func Hola(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hola , Prueba"))
-}
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/", Hola)
+	router.HandleFunc("/", routes.Hola)
 	http.ListenAndServe(":3000", router)
 }
