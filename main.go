@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
 
+	"github.com/gorilla/mux"
+)
+
+func Hola(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Hola , Prueba"))
+}
 func main() {
-	fmt.Printf("Prueba")
+	router := mux.NewRouter()
+	router.HandleFunc("/", Hola)
+	http.ListenAndServe(":3000", router)
 }
