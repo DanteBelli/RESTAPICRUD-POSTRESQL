@@ -1,1 +1,1 @@
-RestApiCrud , created using GO , Gorilla Max , DataBase PostreSQL , Test with postman and _test.go. Docker
+RestApiCrud , created using GO , Gorilla Mux , DataBase PostreSQL , Test with postman and _test.go. Docker
