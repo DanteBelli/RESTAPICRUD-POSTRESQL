@@ -20,5 +20,12 @@ func main() {
 
 	router.HandleFunc("/", routes.Hola)
 
+	router.HandleFunc("/users", routes.GetUsers).Methods("GET")
+	router.HandleFunc("/tasks", routes.GetTasks).Methods("GET")
+	router.HandleFunc("/users/{id}", routes.GetUser).Methods("GET")
+	router.HandleFunc("/tasks/{id}", routes.GetTask).Methods("GET")
+	router.HandleFunc("/users", routes.PostUser).Methods("POST")
+	router.HandleFunc("/tasks", routes.PostTask).Methods("POST")
+
 	http.ListenAndServe(":3000", router)
 }
