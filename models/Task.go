@@ -8,4 +8,5 @@ type Task struct {
 	Title       string `gorm:"type:varchar(100);not null;unique_index"`
 	Description string
 	Done        bool `gorm:"default:false"`
+	UserID      uint `json:"user_id"`
 }
