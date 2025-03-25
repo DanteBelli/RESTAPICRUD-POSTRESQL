@@ -26,6 +26,8 @@ func main() {
 	router.HandleFunc("/tasks/{id}", routes.GetTask).Methods("GET")
 	router.HandleFunc("/users", routes.PostUser).Methods("POST")
 	router.HandleFunc("/tasks", routes.PostTask).Methods("POST")
+	router.HandleFunc("/tasks/{id}", routes.DeleteTask).Methods("DELETE")
+	router.HandleFunc("/users/{id}", routes.DeleteUser).Methods("DELETE")
 
 	http.ListenAndServe(":3000", router)
 }
