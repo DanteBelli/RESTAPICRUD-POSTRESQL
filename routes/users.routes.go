@@ -19,12 +19,14 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	params := mux.Vars(r)
 	db.DB.First(&user, params["id"])
-	json.NewEncoder(w).Encode(&user)
 	if user.ID == 0 {
 		w.WriteHeader(http.StatusNotFound)
 		w.Write([]byte("User Not Found"))
 		return
 	}
+	db.DB.Model(&user).Association("Task").Find(&user.Tasks)
+	json.NewEncoder(w).Encode(&user)
+
 }
 
 func GetTasks(w http.ResponseWriter, r *http.Request) {
